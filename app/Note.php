@@ -12,7 +12,7 @@ class Note extends Model
     /**
      * Relationships to touch, when updated.
      */
-    protected $touches = ['card'];
+    protected $touches = ['card'];  // Superimportant per a que canvie els timestamps tant per un model com en l'altre
     
     /**
      * A Note belongs to a card.

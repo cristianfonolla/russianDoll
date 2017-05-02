@@ -16,10 +16,12 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Blade::directive('cache', function ($expression) {
-            return Matryoshka::setUp($expression);
+            return "<?php if (! App\Matryoshka::setUp($expression)) { ?>";
+//            return Matryoshka::setUp($expression);
         });
         Blade::directive('endcache', function ($expression) {
-            return Matryoshka::tearDown();
+            return "<?php } echo App\Matryoshka::tearDown() ?>";
+//            return Matryoshka::tearDown();
         });
     }
 
